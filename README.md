@@ -1,2 +1,2 @@
 # DiceRoll
-Anddroid App
+Android App
