@@ -20,6 +20,9 @@ class MainActivity : AppCompatActivity() {
         rollButton.setOnClickListener { rollDice() }
         // setOnClickListener is used to made an event when the button is clicked
         // inside setOnClick Listener is called the function rollDice() when the button is clicked
+        
+        // Do a roll dice when the app starts
+        rollDice()
     }
 
     /**
