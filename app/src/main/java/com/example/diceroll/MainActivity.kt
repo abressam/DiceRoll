@@ -16,10 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         val rollButton: Button =
             findViewById(R.id.button) // find the Button by calling findViewById
-        rollButton.setOnClickListener {
-            rollDice()
-            rollDice2()
-        }
+        rollButton.setOnClickListener { rollDice() }
         // setOnClickListener is used to made an event when the button is clicked
         // inside setOnClick Listener is called the function rollDice() when the button is clicked
     }
@@ -32,20 +29,8 @@ class MainActivity : AppCompatActivity() {
         val diceRoll = dice.roll()
         // roll the dice calling the roll() method and save the result in the diceRoll variable
         val resultTextView: TextView = findViewById(R.id.textView)
-        val resultTextView2: TextView = findViewById(R.id.textView2)
         // find TextView by calling findViewById
         resultTextView.text = diceRoll.toString()
-        resultTextView2.text = diceRoll.toString()
-        // diceRoll is a number and TextView uses text, so need to convert diceRoll into a string
-    }
-
-    private fun rollDice2() {
-        val dice = Dice(6) // created a 6 sides dice
-        val diceRoll = dice.roll()
-        // roll the dice calling the roll() method and save the result in the diceRoll variable
-        val resultTextView2: TextView = findViewById(R.id.textView2)
-        // find TextView by calling findViewById
-        resultTextView2.text = diceRoll.toString()
         // diceRoll is a number and TextView uses text, so need to convert diceRoll into a string
     }
 
