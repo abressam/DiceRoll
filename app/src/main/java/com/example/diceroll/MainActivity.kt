@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.TextView
 
 /**
  * This activity allows the user to roll a dice and view the result
@@ -15,12 +14,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val rollButton: Button =
-            findViewById(R.id.button) // find the Button by calling findViewById
+        // find the Button in the layout
+        val rollButton: Button = findViewById(R.id.button)
+
+        /**
+         * "setOnClickListener" is used to make an event when the button is clicked
+         * Inside the "setOnClickListener" is called the function rollDice() when the button is clicked
+         */
         rollButton.setOnClickListener { rollDice() }
-        // setOnClickListener is used to made an event when the button is clicked
-        // inside setOnClick Listener is called the function rollDice() when the button is clicked
-        
+
         // Do a roll dice when the app starts
         rollDice()
     }
@@ -30,12 +32,15 @@ class MainActivity : AppCompatActivity() {
      */
     private fun rollDice() {
         val dice = Dice(6) // created a 6 sides dice
-        val diceRoll = dice.roll()
+
         // roll the dice calling the roll() method and save the result in the diceRoll variable
+        val diceRoll = dice.roll()
+
+        // Find the ImageView in the layout
         val diceImage: ImageView = findViewById(R.id.imageView)
-        // find ImageView by calling findViewById
 
         /**
+         * Determine which drawable resource ID to use based on the dice roll
          * Create a drawableResource variable to store the resource ID to use.
          * "when" can return a value. In this case, the expression returns the correct resource ID,
          * which will be stored in the drawableResources variable.
@@ -48,12 +53,21 @@ class MainActivity : AppCompatActivity() {
             5 -> R.drawable.dice_5
             else -> R.drawable.dice_6
         }
+
+        // Update the ImageView with the correct drawable resource ID
         diceImage.setImageResource(drawableResource)
+
+        // Update the content description
         diceImage.contentDescription = diceRoll.toString() // Text description of what is show in the ImageView
     }
 
-    class Dice(private val numSides: Int) { // numSides is only accessible within the Dice class
-        fun roll(): Int { // since the only code that will be using the numSides is inside the Dices, it's okay to make this argument private
+    /**
+     * "numSides" is only accessible within the Dice class.
+     * Since the only code that will be using the numSides is inside the Dices, it's okay to make this argument private.
+     */
+
+    class Dice(private val numSides: Int) {
+        fun roll(): Int {
             return (1..numSides).random()
         }
     }
