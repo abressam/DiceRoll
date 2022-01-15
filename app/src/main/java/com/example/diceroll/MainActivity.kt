@@ -3,6 +3,7 @@ package com.example.diceroll
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 
 /**
@@ -28,10 +29,17 @@ class MainActivity : AppCompatActivity() {
         val dice = Dice(6) // created a 6 sides dice
         val diceRoll = dice.roll()
         // roll the dice calling the roll() method and save the result in the diceRoll variable
-        val resultTextView: TextView = findViewById(R.id.textView)
-        // find TextView by calling findViewById
-        resultTextView.text = diceRoll.toString()
-        // diceRoll is a number and TextView uses text, so need to convert diceRoll into a string
+        val diceImage: ImageView = findViewById(R.id.imageView)
+        // find ImageView by calling findViewById
+        when (diceRoll) {
+            1 -> diceImage.setImageResource(R.drawable.dice_1) // If the user rolls a 1, then display the dice_1 image.
+            2 -> diceImage.setImageResource(R.drawable.dice_2) // If the user rolls a 2, then display the dice_2 image.
+            3 -> diceImage.setImageResource(R.drawable.dice_3) // ...
+            4 -> diceImage.setImageResource(R.drawable.dice_4)
+            5 -> diceImage.setImageResource(R.drawable.dice_5)
+            6 -> diceImage.setImageResource(R.drawable.dice_6)
+        }
+
     }
 
     class Dice(private val numSides: Int) { // numSides is only accessible within the Dice class
