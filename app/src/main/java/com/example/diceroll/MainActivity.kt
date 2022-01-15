@@ -16,4 +16,10 @@ class MainActivity : AppCompatActivity() {
             resultTextView.text = "6"
         }
     }
+
+    class Dice(private val numSides: Int) { // numSides is only accessible within the Dice class
+        fun roll(): Int { // since the only code that will be using the numSides is inside the Dices, it's okay to make this argument private
+            return (1..numSides).random()
+        }
+    }
 }
