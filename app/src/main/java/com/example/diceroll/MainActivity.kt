@@ -31,15 +31,22 @@ class MainActivity : AppCompatActivity() {
         // roll the dice calling the roll() method and save the result in the diceRoll variable
         val diceImage: ImageView = findViewById(R.id.imageView)
         // find ImageView by calling findViewById
-        when (diceRoll) {
-            1 -> diceImage.setImageResource(R.drawable.dice_1) // If the user rolls a 1, then display the dice_1 image.
-            2 -> diceImage.setImageResource(R.drawable.dice_2) // If the user rolls a 2, then display the dice_2 image.
-            3 -> diceImage.setImageResource(R.drawable.dice_3) // ...
-            4 -> diceImage.setImageResource(R.drawable.dice_4)
-            5 -> diceImage.setImageResource(R.drawable.dice_5)
-            6 -> diceImage.setImageResource(R.drawable.dice_6)
-        }
 
+        /**
+         * Create a drawableResource variable to store the resource ID to use.
+         * "when" can return a value. In this case, the expression returns the correct resource ID,
+         * which will be stored in the drawableResources variable.
+         */
+        val drawableResource = when (diceRoll) {
+            1 -> R.drawable.dice_1 // If the user rolls a 1, then display the dice_1 image.
+            2 -> R.drawable.dice_2 // If the user rolls a 2, then display the dice_2 image.
+            3 -> R.drawable.dice_3 // ...
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            else -> R.drawable.dice_6
+        }
+        diceImage.setImageResource(drawableResource)
+        diceImage.contentDescription = diceRoll.toString() // Text description of what is show in the ImageView
     }
 
     class Dice(private val numSides: Int) { // numSides is only accessible within the Dice class
