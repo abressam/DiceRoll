@@ -3,4 +3,4 @@ Meu primeiro aplicativo desenvolvido no Android Studio, seguindo como base o Cod
 
 Para fins de estudo, efetuei melhorias no projeto, adaptando-o para utilizar Fragment.
 
-![Roll the Dice!](<img src="https://github.com/abressam/DiceRoll/blob/3ba8c03cc8c03d237bdbad86d546e84b0248c9eb/diceRollApp.gif"/>)
+<img src="https://github.com/abressam/DiceRoll/blob/3ba8c03cc8c03d237bdbad86d546e84b0248c9eb/diceRollApp.gif" height="100"/>
